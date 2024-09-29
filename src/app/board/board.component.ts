@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core'; // Import OnInit
 import { GameService } from '../game.service';
 
 @Component({
@@ -7,13 +7,15 @@ import { GameService } from '../game.service';
   imports: [],
   templateUrl: './board.component.html'
 })
-export class BoardComponent {
+export class BoardComponent implements OnInit { // Implement OnInit
   boardStatus: string[] = ['', '', '', '', '', '', '', '', ''];
-  headline: string;
-  playerTurn: string;
-  winner: boolean;
+  headline!: string; // Use definite assignment assertion
+  playerTurn!: string; // Use definite assignment assertion
+  winner!: boolean; // Use definite assignment assertion
 
-  constructor(private gameService: GameService) {
+  constructor(private gameService: GameService) {}
+
+  ngOnInit(): void {
     this.headline = this.gameService.headline;
     this.playerTurn = this.gameService.playerTurn;
     this.winner = this.gameService.winner;

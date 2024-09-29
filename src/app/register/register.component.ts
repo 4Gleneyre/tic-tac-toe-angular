@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule} from "@angular/forms";
+import { FormControl, FormGroup, ReactiveFormsModule } from "@angular/forms";
 import { GameService } from "../game.service";
 import { Router } from "@angular/router";
-import { BoardComponent } from "../board/board.component";
+// Removed BoardComponent import
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [ReactiveFormsModule, BoardComponent],
+  imports: [ReactiveFormsModule], // Removed BoardComponent
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
@@ -23,8 +23,7 @@ export class RegisterComponent {
     this.headline = "";
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   onSubmit() {
     if (this.regForm.valid) {
